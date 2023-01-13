@@ -28,8 +28,8 @@ public class ServiceUserImpl implements ServiceUser {
     }
 
     @Override
-    public void createUsers(User user) {
-        userdao.createUsers(user);
+    public void createUser(User user) {
+        userdao.createUser(user);
     }
 
     @Override

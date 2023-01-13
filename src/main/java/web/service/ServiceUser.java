@@ -13,7 +13,7 @@ public interface ServiceUser {
 
     User getUser(Long id);
 
-    void createUsers(User user);
+    void createUser(User user);
 
     void deleteUser(Long id);
 

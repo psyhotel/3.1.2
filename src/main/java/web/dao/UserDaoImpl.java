@@ -33,7 +33,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void createUsers(User user) {
+    public void createUser(User user) {
         entityManager.persist(user);
     }
 

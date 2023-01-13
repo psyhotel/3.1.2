@@ -50,7 +50,7 @@ public class UserController {
     @PostMapping(value = "/user-create")
     public String createUser(@ModelAttribute User user, Model model) {
         model.addAttribute("user", user);
-        serviceUser.createUsers(user);
+        serviceUser.createUser(user);
         return "redirect:/";
     }
 }
