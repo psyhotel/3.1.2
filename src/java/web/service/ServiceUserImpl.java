@@ -2,45 +2,44 @@ package web.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import web.dao.UserDao;
+import web.dao.UserRepository;
 import web.model.User;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ServiceUserImpl implements ServiceUser {
     @Autowired
-    private UserDao userdao;
+    private UserRepository userRepository;
 
     @Override
-    public User findById(Long id) {
-        return userdao.findById(id);
+    public Optional<User> findById(Long id) {
+        return userRepository.findById(id);
     }
 
     @Override
     public List<User> allUsers() {
-        return userdao.allUsers();
+        return userRepository.findAll();
     }
 
     @Override
-    public User getUser(Long id) {
-        return userdao.getUser(id);
+    public Optional<User> getUser(Long id) {
+        return userRepository.findById(id);
     }
 
     @Override
     public void createUser(User user) {
-        userdao.createUser(user);
+        userRepository.save(user);
     }
 
     @Override
     public void deleteUser(Long id) {
-        userdao.deleteUser(id);
+        userRepository.deleteById(id);
     }
 
     @Override
-    public void updateUser(User user) {
-        userdao.updateUser(user);
-
+    public User updateUser(User user) {
+        return userRepository.save(user);
     }
-
 }

@@ -31,7 +31,7 @@ public class UserController {
 
     @GetMapping(value = "/user-update/{id}")
     public String editUser(@PathVariable("id") Long id, Model model) {
-        User user = serviceUser.findById(id);
+        User user = serviceUser.findById(id).get();
         model.addAttribute("user", new User(id, user.getName(), user.getSurname()));
         return "user-update";
     }

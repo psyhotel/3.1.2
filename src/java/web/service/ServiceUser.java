@@ -1,22 +1,20 @@
 package web.service;
 
-import org.springframework.stereotype.Service;
 import web.model.User;
 
 import java.util.List;
-
+import java.util.Optional;
 
 public interface ServiceUser {
-    User findById(Long id);
+    Optional<User> findById(Long id);
 
     List<User> allUsers();
 
-    User getUser(Long id);
+    Optional<User> getUser(Long id);
 
     void createUser(User user);
 
     void deleteUser(Long id);
 
-    void updateUser(User user);
-
+    User updateUser(User user);
 }
